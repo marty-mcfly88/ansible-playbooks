@@ -1,0 +1,26 @@
+---
+- hosts: localhost
+  tasks:
+        - name: install flatpak via dnf
+          dnf:
+            name: flatpak
+            state: latest
+
+        - name: Add the flathub flatpak repository remote to the user installation
+          flatpak_remote:
+            name: flathub
+            state: present
+            flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo
+            method: user
+
+        - name: Install nvim via flatpak 
+          flatpak:
+            name: io.neovim.nvim 
+            state: present
+            method: user
+
+        - name: Install PyCharm-Community via flatpak 
+          flatpak:
+            name: com.jetbrains.PyCharm-Community 
+            state: present
+            method: user

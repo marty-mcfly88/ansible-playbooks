@@ -1,0 +1,8 @@
+---
+- name: PLAY-1
+  hosts: localhost
+  tasks: 
+  - name: P1 
+    copy: 
+      dest: ~/.gitconfig
+      src: master.gitconfig
