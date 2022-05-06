@@ -11,16 +11,16 @@
             name: flathub
             state: present
             flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo
-            method: user
+            method: system 
 
         - name: Install nvim via flatpak 
           flatpak:
             name: io.neovim.nvim 
             state: present
-            method: user
+            method: system
 
         - name: Install PyCharm-Community via flatpak 
           flatpak:
             name: com.jetbrains.PyCharm-Community 
             state: present
-            method: user
+            method: system
