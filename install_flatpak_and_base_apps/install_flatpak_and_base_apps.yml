@@ -1,10 +1,16 @@
 ---
 - hosts: localhost
   tasks:
-        - name: install flatpak via dnf
+        - name: Install flatpak via dnf
           dnf:
             name: flatpak
             state: latest
+
+        - name: Install Virtual Manager/QEMU/KVM via dnf
+          dnf:
+            name: virt-install
+            state: latest
+
 
         - name: Add the flathub flatpak repository remote to the user installation
           flatpak_remote:
@@ -12,12 +18,6 @@
             state: present
             flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo
             method: system 
-
-        - name: Install nvim via flatpak 
-          flatpak:
-            name: io.neovim.nvim 
-            state: present
-            method: system
 
         - name: Install PyCharm-Community via flatpak 
           flatpak:
