@@ -18,15 +18,14 @@
             flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo
             method: system 
 
-        - name: Install PyCharm-Community via flatpak 
-          flatpak:
-            name: com.jetbrains.PyCharm-Community 
-            state: present
-            method: system
-
+        - name: Install PyCharm-Community via dnf 
+          dnf:
+            name: pycharm-community 
+            state: latest
 
         - name: Install Secrets via flatpak 
           flatpak:
             name: org.gnome.World.Secrets 
-            state: present
+            state: present 
             method: system
+

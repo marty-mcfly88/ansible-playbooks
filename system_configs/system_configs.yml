@@ -1,14 +1,9 @@
 ---
-- hosts: localhost
+- hosts: managed_hosts 
   tasks:
         - name: Set timezone to America/Chicago 
           timezone:
             name: America/Chicago
-
-        - name: Set a hostname specifying strategy
-          ansible.builtin.hostname:
-            name: delorean
-            use: systemd
 
         - name: Set git config 
           copy:
